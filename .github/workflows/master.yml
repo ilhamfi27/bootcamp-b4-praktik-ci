@@ -1,0 +1,19 @@
+name: "Build and push to dockerhub"
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  checking-nodejs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: debugging 1
+        run: echo "hello world"
+
+      - name: debugging 2
+        run: echo "hello world 2"
+
+      - name: debugging 3
+        run: echo "hello world 3"
