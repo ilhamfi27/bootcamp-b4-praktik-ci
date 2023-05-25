@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: app1.Dockerfile
+    image: ilhamfadhilah/nyoba-docker:nodejs1
+    ports:
+      - 4000:4000
+
+  app2:
+    build:
+      context: .
+      dockerfile: app2.Dockerfile
+    image: ilhamfadhilah/nyoba-docker:nodejs2
+    ports:
+      - 4001:5000

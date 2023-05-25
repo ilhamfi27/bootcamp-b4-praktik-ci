@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  app1:
+    environment:
+      - NODE_ENV=production
+      - APP_PORT=4000
+      - DB_HOST=localhost
+      - DB_USERNAME=root
+      - DB_PASSROD=root
+    networks:
+      default:
+
+  app2:
+    environment:
+      - NODE_ENV=production
+      - APP_PORT=5000
+      - DB_HOST=localhost
+      - DB_USERNAME=root
+      - DB_PASSROD=root
+    networks:
+      default:
+
+  mariadb:
+    image: mariadb:10.3.10
+    depends_on:
+      - adminer
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - "8900:8080"
+
+
+networks:
+  default:
