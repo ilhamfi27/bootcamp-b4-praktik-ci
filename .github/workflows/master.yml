@@ -9,11 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: debugging 1
-        run: echo "hello world"
+      - name: checkout repository
+        uses: actions/checkout@v2
 
-      - name: debugging 2
-        run: echo "hello world 2"
+      - name: setup nodejs v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-      - name: debugging 3
-        run: echo "hello world 3"
+      - name: install dependencies
+        run: npm install
+
+      - name: run application
+        run: npm start
+        
